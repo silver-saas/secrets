@@ -1,0 +1,26 @@
+language: python
+
+python:
+- "2.7"
+
+# The secure env variables are: GEMFURY_KEY
+env:
+  global:
+
+
+install: 
+  - pip install coveralls
+  - pip install coverage
+  - pip install -r requirements.txt
+
+script: coverage run --source=$$MODULES_NAME --module unittest discover --verbose
+
+after_success:
+  - coveralls
+
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: bin/togemfury.sh
+
+sudo: false
