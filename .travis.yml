@@ -6,14 +6,14 @@ python:
 # The secure env variables are: GEMFURY_KEY
 env:
   global:
-
+    - secure: "ULAdgPTHjsaQBb4Y9OXRbK9DRLdWpjf989jApupR32FSI8Lt0FrcVJWosGoQ3oNyLzkfMz8xo3UpZRZ+ZOcH/K8XAseABD6ofk/uba2htF8qobumvzXfRCt5kxKo7drrPvZKQU96iDdEIkQp5gEMH7Mju0yuHUS1foFcqWRrAujEuOkIsdCYpf5pvD97yKxGaDIdvede5pNf2NtTVkS+mKxWGh+mN5o+0vhy9hQDFKrk0P9Q41Hd9HN0K97hDkQaEJBza0t2MTMv8YRZcsQt+6wJucD38cXctAnFcJsHIWncgwKKuERMBxtv+LmEuVSbQmoaZeLDPOQnqrH0lKfbLRHYziS2EX7GUj/aRcT4eAvXXuOcuWs+vQ8AVU404oy9LAU2EHKUS5p1vYeo/82c2Hbd9e/8aBu2NV4DXlB37WyJIi39XimNM7JTpoS3vxV+tR1hdgaos2wEKCc3h4o9H/5djinS5JjIbrNhpXVIDuvWaMku+M4HM2lPdoypcZTWFlxmch9bE9GGyxrh5fU9hoPW+emeyz9uSmKUtvK919vT1jSa/5AZsyizoEQsaNPk3gOGmrSPlJPkdnYtLt6cZ49iakA2h3Mizwc46HfSpRil2nFpwrpwAQiBK+1xoKng0NzuqhkT5QusuNk+QAphli8ztF08bxFzvqezhBioSDI="
 
 install: 
   - pip install coveralls
   - pip install coverage
   - pip install -r requirements.txt
 
-script: coverage run --source=$$MODULES_NAME --module unittest discover --verbose
+script: coverage run --source=secrets --module unittest discover --verbose
 
 after_success:
   - coveralls
